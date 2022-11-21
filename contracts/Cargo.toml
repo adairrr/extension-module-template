@@ -1,0 +1,33 @@
+[package]
+# TODO rename
+name = "template-app-name"
+version.workspace = true
+authors.workspace = true
+description.workspace = true
+edition = "2021"
+
+exclude = [
+  # Those files are rust-optimizer artifacts. You might want to commit them for convenience but they should not be part of the source code publication.
+  "contract.wasm",
+  "hash.txt",
+]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+# for more explicit tests, cargo test --features=backtraces
+backtraces = ["cosmwasm-std/backtraces"]
+library = []
+
+[dependencies]
+cosmwasm-schema = { version = "1.1" }
+cosmwasm-std = { workspace = true }
+schemars = "0.8.11"
+thiserror = "1.0.37"
+serde = { version = "1.0.103" }
+abstract-os = "0.2.0-beta.5"
+abstract-sdk = "0.2.0-beta.5"
+abstract-extension = "0.2.0-beta.5"
