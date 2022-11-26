@@ -47,7 +47,7 @@ pub fn deploy_extension() -> anyhow::Result<()> {
     // Upload and register your module
     let extension_name = format!("{}:{}", MODULE_NAMESPACE, MODULE_NAME);
     let mut extension = TemplateExtension::new(&extension_name, &chain);
-    let app_version = Version::parse(MODULE_VERSION)?;
+    let module_version = Version::parse(MODULE_VERSION)?;
 
     let extension_init_msg = extension::InstantiateMsg {
         base: extension::BaseInstantiateMsg {
@@ -56,7 +56,7 @@ pub fn deploy_extension() -> anyhow::Result<()> {
         },
         app: Empty {},
     };
-    version_control.upload_and_register_extension(&mut extension.as_instance_mut(), &extension_init_msg, &app_version)?;
+    version_control.upload_and_register_extension(&mut extension.as_instance_mut(), &extension_init_msg, &module_version)?;
 
     // Example queries
     // app.query_base(BaseQueryMsg::Admin {})?;
