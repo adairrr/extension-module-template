@@ -11,12 +11,12 @@ This repository includes a template for the extension module, deployment interfa
 
 ## Instructions
 
-### Option 1
+### Option 1 (coming soon)
 Use the template using [`cargo generate`](https://cargo-generate.github.io/cargo-generate/index.html)
 ```shell
 cargo generate gh:Abstract-OS/extension-template -b template
 ```
-### Option 2:
+### Option 2
 Fork this repository
 
 
